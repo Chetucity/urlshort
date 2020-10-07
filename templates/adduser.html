@@ -1,0 +1,34 @@
+
+    {% extends 'base.html' %}
+    {% block title %}URL Shortner{% endblock %}
+    
+    {% block main %}
+
+   
+    <h1>User Additional Details</h1>
+
+
+    <form action="details" method="Post">
+        <label for="url">Website url</label>
+        <input type="url" name="url" value=""><br>
+        <label for="code">Short Name</label>
+        <input type="text" name="code" value=""><br>
+        <input type="submit">
+    </form>
+    <form action="details" method="Post" enctype="multipart/form-data">
+        <label for="file">File</label>
+        <input type="file" name="file" value=""><br>
+        <label for="code">Short Name</label>
+        <input type="text" name="code" value=""><br>
+        <input type="submit">
+    </form>
+
+    {% if codes %}
+    <h2>Codes you have created</h2>
+    <ul>
+        {% for code in codes %}
+        <li>{{ code }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endblock %}
